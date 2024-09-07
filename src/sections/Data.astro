@@ -1,0 +1,84 @@
+---
+import { Image } from "astro:assets";
+---
+
+<div
+  class="bg-[#1212124D] text-white border border-[#393939] rounded-[32px] max-[930px]:mx-auto">
+  <div class="flex flex-col items-center gap-8 max-[930px]:gap-4 max-lg:p-4 p-4">
+    <div
+      class="flex flex-col items-center gap-5 max-[930px]:flex-row max-[930px]:gap-2">
+      <div class="bg-[#1E1E1F] rounded-3xl">
+        <Image
+          src="/images/elian-rehbani.png"
+          alt="profile"
+          width="100"
+          height="100"
+          class="p-3 size-48 object-contain"
+          loading={"eager"}
+        />
+      </div>
+      <div class="flex flex-col items-center gap-5">
+        <h1 class="text-2xl font-bold max-sm:text-xl">Elián Rehbani</h1>
+        <div
+          class="bg-[#1E1E1F] p-3 flex items-center justify-center gap-4 rounded-full w-full">
+          <div
+            class="size-4 bg-[#1AFF83] aspect-square rounded-full shadow-[0px_0px_10px_0px_#1AFF83] animate-pulse">
+          </div>
+          <h2 class="text-[#949494] text-sm">Available for work</h2>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex flex-col gap-2 max-[930px]:grid max-[930px]:grid-cols-2 max-[930px]:gap-2">
+      <div
+        class="flex items-center gap-3 max-[930px]:border border-[#393939] py-2 px-4 rounded-full max-[930px]:justify-center max-[930px]:bg-white max-[930px]:text-black max-[930px]:p-4 max-[930px]:rounded-md">
+        <img src="../../public/svg/mail.svg" alt="mail" />
+        <p class="max-[930px]:hidden max-sm:text-sm">elianrhbn@gmail.com</p>
+        <p class="min-[930px]:hidden max-sm:text-sm">E-mail me</p>
+      </div>
+      <div
+        class="flex items-center gap-4 max-[930px]:border border-[#393939] py-2 px-4 rounded-full max-[930px]:justify-center max-[930px]:bg-[#393939] max-[930px]:p-4 max-[930px]:rounded-md">
+        <img src="../../public/svg/telegram.svg" alt="telegram" />
+        <p class="max-[930px]:hidden max-sm:text-sm">@elianrhbn</p>
+        <p class="min-[930px]:hidden max-sm:text-sm">Telegram me</p>
+      </div>
+      <div
+        class="flex items-center gap-4 max-[930px]:border border-[#393939] py-2 px-4 rounded-full">
+        <img src="../../public/svg/birthdate.svg" alt="birthdate" />
+        <p class="max-sm:text-sm">25 NOV, 2003</p>
+      </div>
+      <div
+        class="flex items-center gap-4 max-[930px]:border border-[#393939] py-2 px-4 rounded-full">
+        <img src="../../public/svg/location.svg" alt="location" />
+        <p class="max-sm:text-sm">Mar del Plata, ARG</p>
+      </div>
+    </div>
+
+    <div class="border border-[#393939] w-[80%] max-[930px]:hidden"></div>
+
+    <div
+      class="bg-[#1E1E1F] p-4 rounded-xl flex items-center gap-8 w-[80%] max-[930px]:justify-center">
+      <img src="../../public/svg/cv.svg" alt="cv" />
+      <p class="max-sm:text-sm">Download CV</p>
+    </div>
+
+    <div class="border border-[#393939] w-[80%]"></div>
+
+    <div class="flex items-center gap-4">
+      <a href="https://github.com/ERehbani" target="_blank">
+        <img src="../../public/svg/github.svg" alt="github" />
+      </a>
+      <a href="https://www.linkedin.com/in/elian-rehbani/" target="_blank">
+        <img src="../../public/svg/linkedin.svg" alt="linkedin" />
+      </a>
+      <a
+        href="https://www.upwork.com/freelancers/~01cb5ee7641e3347f8"
+        target="_blank">
+        <img src="../../public/svg/upwork.svg" alt="upwork" />
+      </a>
+      <a href="https://es.fiverr.com/elinrhbn" target="_blank">
+        <img src="../../public/svg/fiverr.svg" alt="fiverr" />
+      </a>
+    </div>
+  </div>
+</div>

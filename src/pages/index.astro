@@ -1,0 +1,23 @@
+---
+import Carousel from '../components/Carousel';
+import Layout from '../layouts/Layout.astro';
+import Aboutme from '../sections/Aboutme.astro';
+import Certifications from '../sections/Certifications.astro';
+import Data from '../sections/Data.astro';
+import Portfolio from '../sections/Portfolio.astro';
+import '../styles/global.css'
+---
+
+<Layout title="Welcome to Astro.">
+	<div class="h-[calc(100vh-80px)] grid grid-cols-1 lg:grid-cols-[1fr_3fr] my-10 w-[1250px] max-[930px]:max-w-fit mx-auto  gap-[3%] max">
+		<Data />
+		<div class="flex flex-col gap-4 lg:-6  justify-between">
+		  <div class="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-4 lg:gap-6">
+			<Aboutme />
+			<Certifications />
+		  </div>
+		  <Portfolio />
+		  <Carousel client:only/>
+		</div>
+	</div>
+</Layout>
