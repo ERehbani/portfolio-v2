@@ -1,78 +1,103 @@
----
-
-const certificates = [
-  {
-    title: "Full Stack Web Developer",
-    institution: "Henry (2023)",
-  },
-  {
-    title: "Backend Programmation",
-    institution: "CoderHouse (2024)",
-  },
-  {
-    title: "English 3th Intermediate",
-    institution: "CEM English (2024)",
-  },
-];
----
-
-<div class="bg-[#1212124D] text-white border border-[#393939] rounded-[32px] p-8 flex items-center w-full max-w-md ml-auto mx-auto relative h-full">
-  <button id="prev-btn" class="px-10 text-gray-800 rounded-md focus:outline-none absolute left-[-10px] top-auto">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8l-4 4 4 4M16 12H9"/></svg>
+<div
+  class="bg-[#1212124D] text-white border border-[#393939] rounded-[32px] p-8 flex items-center w-full ml-auto mx-auto relative h-full max-md:w-full hover:shadow-md hover:shadow-[#393939] transition-shadow">
+  <button
+    id="prev-btn"
+    class="px-10 text-gray-800 rounded-md focus:outline-none absolute left-[-10px] top-auto">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="#ffffff"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      ><circle cx="12" cy="12" r="10"></circle><path d="M12 8l-4 4 4 4M16 12H9"
+      ></path></svg
+    >
   </button>
- <div class="flex flex-col items-center justify-center grow">
-  <div class="w-full shadow-md rounded-lg overflow-hidden flex justify-center">
-    <div class="p-4 w-[225px]">
-      <h2 class="text-xl font-bold text-center mb-4 max-lg:text-lg">Certificates</h2>
-      <div id="certificate-content" class="text-center max-lg:text-sm">
-        <h3 class="text-lg text-center" id="certificate-title"></h3>
-        <p class="text-sm text-gray-600 text-center" id="certificate-institution"></p>
+  <div class="flex flex-col items-center justify-center grow">
+    <div
+      class="w-full shadow-md rounded-lg overflow-hidden flex justify-center">
+      <div class="p-4 w-[225px] h-40">
+        <h2 class="text-xl font-bold text-center mb-4 max-lg:text-lg">
+          Certificates
+        </h2>
+        <div id="certificate-content" class="text-center max-lg:text-sm">
+          <a href="" id="certificate-link" target="_blank" class="hover:underline hover:font-semibold transition-all">
+            <h3 class="text-lg text-center h-14" id="certificate-title"></h3>
+          </a>
+          <p
+            class="text-sm text-gray-600 text-center"
+            id="certificate-institution">
+          </p>
+        </div>
       </div>
     </div>
+    <div class="flex justify-center space-x-2" id="certificate-circles">
+      <!-- Circles will be dynamically added here -->
+    </div>
+    <div class="flex justify-center space-x-4"></div>
   </div>
-  <div class="flex justify-center space-x-2" id="certificate-circles">
-    <!-- Circles will be dynamically added here -->
-  </div>
-  <div class="flex justify-center space-x-4">
- </div>
-   
+  <button
+    id="next-btn"
+    class="px-10 text-gray-800 rounded-md focus:outline-none absolute right-[-10px] top-auto">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="#ffffff"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      ><circle cx="12" cy="12" r="10"></circle><path d="M12 8l4 4-4 4M8 12h7"
+      ></path></svg
+    >
+  </button>
 </div>
-<button id="next-btn" class="px-10 text-gray-800 rounded-md  focus:outline-none  absolute right-[-10px] top-auto">
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8l4 4-4 4M8 12h7"/></svg>
-</button>
-</div>
-
 
 <script>
   const certificates = [
     {
       title: "Full Stack Web Developer",
       institution: "Henry (2023)",
+      link: "https://asset.cloudinary.com/dmnb6cfzj/6d22e37cb4d05f5644ce3149fac3d1db"
     },
     {
       title: "Backend Programmation",
       institution: "CoderHouse (2024)",
+      link: "https://asset.cloudinary.com/dmnb6cfzj/c9d2d85f5299996a9f1fe28639d92697"
     },
     {
       title: "English 3th Intermediate",
       institution: "CEM English (2024)",
+      link: "https://asset.cloudinary.com/dmnb6cfzj/391bd0868312b6a7e65a5cb53c215501"
+    },
+    {
+      title: "Lean Six Sigma",
+      institution: "Certiprof",
+      link: "https://asset.cloudinary.com/dmnb6cfzj/ef1eeb7b3cd302ff76c4c6cbf812ce5d"
     },
   ];
 
   let currentIndex = 0;
 
-  const titleElement = document.getElementById('certificate-title');
-  const institutionElement = document.getElementById('certificate-institution');
-  const prevButton = document.getElementById('prev-btn');
-  const nextButton = document.getElementById('next-btn');
-  const circlesContainer = document.getElementById('certificate-circles');
+  const titleElement = document.getElementById("certificate-title");
+  const institutionElement = document.getElementById("certificate-institution");
+  const linkElement = document.getElementById("certificate-link") as HTMLAnchorElement;
+  const prevButton = document.getElementById("prev-btn");
+  const nextButton = document.getElementById("next-btn");
+  const circlesContainer = document.getElementById("certificate-circles");
 
   function createCircles() {
     if (circlesContainer) {
       certificates.forEach((_, index) => {
-        const circle = document.createElement('div');
-        circle.className = 'w-3 h-3 rounded-full bg-gray-300';
-        circle.setAttribute('aria-label', `Certificate ${index + 1}`);
+        const circle = document.createElement("div");
+        circle.className = "w-3 h-3 rounded-full bg-gray-300";
+        circle.setAttribute("aria-label", `Certificate ${index + 1}`);
         circlesContainer.appendChild(circle);
       });
     }
@@ -83,20 +108,21 @@ const certificates = [
     if (circles) {
       Array.from(circles).forEach((circle, index) => {
         if (index === currentIndex) {
-          circle.classList.remove('bg-gray-300');
-          circle.classList.add('bg-gray-500');
+          circle.classList.remove("bg-gray-300");
+          circle.classList.add("bg-gray-500");
         } else {
-          circle.classList.remove('bg-gray-500');
-          circle.classList.add('bg-gray-300');
+          circle.classList.remove("bg-gray-500");
+          circle.classList.add("bg-gray-300");
         }
       });
     }
   }
 
   function updateCertificate() {
-    if (titleElement && institutionElement) {
+    if (titleElement && institutionElement && linkElement) {
       titleElement.textContent = certificates[currentIndex].title;
       institutionElement.textContent = certificates[currentIndex].institution;
+      linkElement.href = certificates[currentIndex].link; // Update the link
     }
     updateCircles();
   }
@@ -107,13 +133,14 @@ const certificates = [
   }
 
   function prevCertificate() {
-    currentIndex = (currentIndex - 1 + certificates.length) % certificates.length;
+    currentIndex =
+      (currentIndex - 1 + certificates.length) % certificates.length;
     updateCertificate();
   }
 
   if (prevButton && nextButton) {
-    prevButton.addEventListener('click', prevCertificate);
-    nextButton.addEventListener('click', nextCertificate);
+    prevButton.addEventListener("click", prevCertificate);
+    nextButton.addEventListener("click", nextCertificate);
   }
 
   // Initialize the carousel

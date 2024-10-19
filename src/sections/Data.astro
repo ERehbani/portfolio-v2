@@ -1,10 +1,12 @@
 ---
 import { Image } from "astro:assets";
+import Popover from "../components/popover.astro";
 ---
 
 <div
-  class="bg-[#1212124D] text-white border border-[#393939] rounded-[32px] max-[930px]:mx-auto">
-  <div class="flex flex-col items-center gap-8 max-[930px]:gap-4 max-lg:p-4 p-4">
+  class="bg-[#1212124D] text-white border border-[#393939] rounded-[32px] max-[930px]:mx-auto hover:shadow-md hover:shadow-[#393939] transition-shadow">
+  <div
+    class="flex flex-col items-center gap-8 max-[930px]:gap-4 max-lg:p-4 p-4">
     <div
       class="flex flex-col items-center gap-5 max-[930px]:flex-row max-[930px]:gap-2">
       <div class="bg-[#1E1E1F] rounded-3xl">
@@ -17,14 +19,15 @@ import { Image } from "astro:assets";
           loading={"eager"}
         />
       </div>
-      <div class="flex flex-col items-center gap-5">
+      <div class="flex flex-col items-center gap-5 relative ">
         <h1 class="text-2xl font-bold max-sm:text-xl">Elián Rehbani</h1>
+        <div class="bg-[#1AFF83] w-full rounded-full h-11 absolute -bottom-[2px] -z-10 blur-[2px] animate-pulse max-[930px]:h-10"/>
         <div
           class="bg-[#1E1E1F] p-3 flex items-center justify-center gap-4 rounded-full w-full">
           <div
             class="size-4 bg-[#1AFF83] aspect-square rounded-full shadow-[0px_0px_10px_0px_#1AFF83] animate-pulse">
           </div>
-          <h2 class="text-[#949494] text-sm">Available for work</h2>
+          <h2 class="text-[#949494] text-sm max-[930px]:text-xs pointer-events-none">Available for work</h2>
         </div>
       </div>
     </div>
@@ -45,21 +48,28 @@ import { Image } from "astro:assets";
       <div
         class="flex items-center gap-4 max-[930px]:border border-[#393939] py-2 px-4 rounded-full">
         <img src="../../public/svg/birthdate.svg" alt="birthdate" />
-        <p class="max-sm:text-sm">25 NOV, 2003</p>
+        <p class="max-sm:text-sm pointer-events-none">25 NOV, 2003</p>
       </div>
       <div
         class="flex items-center gap-4 max-[930px]:border border-[#393939] py-2 px-4 rounded-full">
         <img src="../../public/svg/location.svg" alt="location" />
-        <p class="max-sm:text-sm">Mar del Plata, ARG</p>
+        <p class="max-sm:text-sm pointer-events-none">Mar del Plata, ARG</p>
       </div>
     </div>
 
     <div class="border border-[#393939] w-[80%] max-[930px]:hidden"></div>
 
     <div
-      class="bg-[#1E1E1F] p-4 rounded-xl flex items-center gap-8 w-[80%] max-[930px]:justify-center">
-      <img src="../../public/svg/cv.svg" alt="cv" />
-      <p class="max-sm:text-sm">Download CV</p>
+      class="bg-[#1E1E1F] p-4 rounded-xl flex items-center max-[930px]:justify-center w-fit ">
+      <img src="../../public/svg/cv.svg" alt="cv" class="mx-2"/>
+      <!-- <a
+        href="../../public/CV-Elian-Rehbani.pdf"
+        target="_blank"
+        class="max-sm:text-sm text-center w-full hover:font-semibold transition-all hover:cursor-pointer"
+        >View CV</a
+      > -->
+      
+      <Popover triggerText="View CV"  /> 
     </div>
 
     <div class="border border-[#393939] w-[80%]"></div>

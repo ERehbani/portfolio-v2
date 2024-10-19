@@ -33,7 +33,7 @@ const { title } = Astro.props;
       <div
         class="relative z-10 flex flex-col items-center justify-center h-[100dvh] my-auto max-lg:h-max max-[930px]:max-w-[446.81px] max-[930px]:mx-auto">
         <slot />
-        <div class="flex my-auto mb-5 -mt-5">
+        <div class="flex my-auto mb-5 -mt-5 max-lg:hidden">
           <span class="text-[#5B5B5B] mx-1">Made with </span>
           <Image
             src={AstroFooter}

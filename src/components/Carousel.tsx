@@ -86,6 +86,18 @@ const icons = [
     name: "PostgreSQL",
   },
   {
+    icon: (props: React.ImgHTMLAttributes<HTMLImageElement>) => (
+      // biome-ignore lint/a11y/useAltText: <explanation>
+      <img
+        aria-label="mongodb"
+        src="/svg/mongodb.svg"
+        alt="MongoDB"
+        {...props}
+      />
+    ),
+    name: "MongoDB",
+  },
+  {
     // biome-ignore lint/a11y/useAltText: <explanation>
     icon: (props: React.ImgHTMLAttributes<HTMLImageElement>) => (
       <img
@@ -151,10 +163,10 @@ export default function Carousel() {
   };
 
   return (
-    <div className="w-full bg-[#1212124D] text-white border border-[#393939] rounded-[32px] overflow-hidden">
+    <div className="w-full bg-[#1212124D] text-white border border-[#393939] rounded-[32px] overflow-hidden hover:shadow-md hover:shadow-[#393939] transition-shadow">
       <h2 className="text-xl font-bold p-4">Technologies</h2>
 
-      <div className="relative h-20 overflow-hidden"> {/* Aumentamos la altura a 28 para dar espacio al tooltip */}
+      <div className="relative h-20 overflow-hidden">
         <div
           ref={containerRef}
           className="absolute flex animate-scroll whitespace-nowrap"
@@ -171,12 +183,12 @@ export default function Carousel() {
               {icons.map(({ icon: Icon, name }, index) => (
                 <div
                   key={`${outerIndex}-${index}`}
-                  className="flex-none w-20 max-[930px]:w-24 flex items-center justify-center pb-4 cursor-pointer">
+                  className="flex-none w-20 max-[930px]:w-24 flex items-center justify-center cursor-pointer">
                   <div
-                    className="max-[930px]:w-16 max-[930px]:h-16 flex items-center justify-center rounded-full transition-colors duration-200"
+                    className="max-[930px]:w-16 max-[930px]:h-16 flex items-center justify-center rounded-full transition-colors duration-200 h-10"
                     data-tooltip-id="my-tooltip"
                     data-tooltip-content={name}>
-                    <Icon className="w-8 h-8  text-primary p-0" />
+                    <Icon className="w-8 h-8  text-primary p-0  hover:size-10 transition-all" />
                   </div>
                 </div>
               ))}

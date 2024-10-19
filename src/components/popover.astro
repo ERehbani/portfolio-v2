@@ -1,0 +1,90 @@
+---
+// Popover.astro
+interface Props {
+  triggerText: string;
+}
+
+const { triggerText } = Astro.props;
+---
+
+<div class="relative inline-block">
+  <button
+    class="popover-trigger px-4 py-2 bg-[#1e1e1e] text-white rounded-md transition-colors duration-200 hover:bg-[#2e2e2e]">
+    {triggerText}
+  </button>
+  <div
+    class="popover-content absolute z-10 invisible opacity-0 transition-all duration-300 ease-in-out transform
+           md:left-full md:ml-2 md:top-0
+           left-0 top-full mt-2 w-48 rounded-md shadow-lg bg-[#1e1e1e] ring-1 ring-black ring-opacity-5">
+    <div class="p-4 flex flex-col space-y-4">
+      <a
+        href="../../public/CV-Elian-Rehbani-2024.pdf"
+        target="_blank"
+        class="max-sm:text-sm text-center w-full hover:font-semibold transition-all hover:cursor-pointer hover:bg-[#393939] h-10 my-auto flex flex-col justify-center rounded-md"
+        >🇪🇸 Spanish</a
+      >
+      <div class="h-[1px] w-full bg-[#393939]"></div>
+      <a
+        href="../../public/CV-Elian-Rehbani-English-2024.pdf"
+        target="_blank"
+        class="max-sm:text-sm text-center w-full hover:font-semibold transition-all hover:cursor-pointer hover:bg-[#393939] h-10 my-auto flex flex-col justify-center rounded-md"
+        >🇺🇸 English</a
+      >
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const triggers = document.querySelectorAll(".popover-trigger");
+
+    triggers.forEach((trigger) => {
+      const content = trigger.nextElementSibling as HTMLElement;
+
+      trigger.addEventListener("click", (e) => {
+        e.stopPropagation();
+        content.classList.toggle("invisible");
+        content.classList.toggle("opacity-0");
+
+        // Adjust position based on screen size and available space
+        if (window.innerWidth >= 768) {
+          // md breakpoint
+          const rect = trigger.getBoundingClientRect();
+          const spaceRight = window.innerWidth - rect.right;
+          if (spaceRight < content.offsetWidth + 8) {
+            content.style.left = "auto";
+            content.style.right = "100%";
+            content.style.marginLeft = "0";
+            content.style.marginRight = "8px";
+            content.style.top = "0";
+            content.style.bottom = "auto";
+          } else {
+            content.style.left = "100%";
+            content.style.right = "auto";
+            content.style.marginLeft = "8px";
+            content.style.marginRight = "0";
+            content.style.top = "0";
+            content.style.bottom = "auto";
+          }
+        } else {
+          // Mobile layout
+          content.style.left = "0";
+          content.style.right = "auto";
+          content.style.top = "100%";
+          content.style.bottom = "auto";
+          content.style.marginLeft = "0";
+          content.style.marginTop = "8px";
+        }
+      });
+    });
+
+    document.addEventListener("click", () => {
+      const openPopovers = document.querySelectorAll(
+        ".popover-content:not(.invisible)"
+      );
+      openPopovers.forEach((popover) => {
+        popover.classList.add("invisible", "opacity-0");
+      });
+    });
+  });
+</script>
