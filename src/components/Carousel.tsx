@@ -1,6 +1,5 @@
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
-import { Tooltip } from "react-tooltip";
 
 const icons = [
   {
@@ -185,9 +184,8 @@ export default function Carousel() {
                   key={`${outerIndex}-${index}`}
                   className="flex-none w-20 max-[930px]:w-24 flex items-center justify-center cursor-pointer">
                   <div
-                    className="max-[930px]:w-16 max-[930px]:h-16 flex items-center justify-center rounded-full transition-colors duration-200 h-10"
-                    data-tooltip-id="my-tooltip"
-                    data-tooltip-content={name}>
+                    className="tooltip tooltip-bottom tooltip-primary max-[930px]:w-16 max-[930px]:h-16 flex items-center justify-center rounded-full transition-colors duration-200 h-10"
+                    data-tip={name}>
                     <Icon className="w-8 h-8  text-primary p-0  hover:size-10 transition-all" />
                   </div>
                 </div>
@@ -196,14 +194,17 @@ export default function Carousel() {
           ))}
         </div>
       </div>
-      <Tooltip 
-        id="my-tooltip" 
-        place="top"  
-        style={{ backgroundColor: "#373737", color: "white" }}
+      {/* <Tooltip
+        id="my-tooltip"
+        place="top"
+        style={{
+          backgroundColor: "#373737",
+          color: "white",
+        }}
         offset={5}
         delayShow={300}
         delayHide={150}
-      />
+      /> */}
     </div>
   );
 }

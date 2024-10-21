@@ -66,5 +66,23 @@ export default {
     		}
     	}
     },
-	plugins: [require("tailwindcss-animate")],
+	plugins: [require("tailwindcss-animate"), require('daisyui')],
+	daisyui: {
+		themes: [
+		  {
+			light: {
+			  ...require("daisyui/src/theming/themes")["[data-theme=light]"],
+			  primary: "#393939",
+			  "primary-focus": "#2a2a2a", // Un tono más oscuro para el efecto de focus
+			  "primary-content": "#ffffff", // Color del texto sobre el fondo primario
+			},
+			dark: {
+			  ...require("daisyui/src/theming/themes")["[data-theme=dark]"],
+			  primary: "#393939",
+			  "primary-focus": "#2a2a2a",
+			  "primary-content": "#ffffff",
+			},
+		  },
+		],
+	  },
 }

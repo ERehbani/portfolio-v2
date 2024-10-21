@@ -19,15 +19,20 @@ import Popover from "../components/popover.astro";
           loading={"eager"}
         />
       </div>
-      <div class="flex flex-col items-center gap-5 relative ">
+      <div class="flex flex-col items-center gap-5 relative">
         <h1 class="text-2xl font-bold max-sm:text-xl">Elián Rehbani</h1>
-        <div class="bg-[#1AFF83] w-full rounded-full h-11 absolute -bottom-[2px] -z-10 blur-[2px] animate-pulse max-[930px]:h-10"/>
+        <div
+          class="bg-[#1AFF83] w-full rounded-full h-11 absolute -bottom-[2px] -z-10 blur-[2px] animate-pulse max-[930px]:h-10">
+        </div>
         <div
           class="bg-[#1E1E1F] p-3 flex items-center justify-center gap-4 rounded-full w-full">
           <div
             class="size-4 bg-[#1AFF83] aspect-square rounded-full shadow-[0px_0px_10px_0px_#1AFF83] animate-pulse">
           </div>
-          <h2 class="text-[#949494] text-sm max-[930px]:text-xs pointer-events-none">Available for work</h2>
+          <h2
+            class="text-[#949494] text-sm max-[930px]:text-xs pointer-events-none">
+            Available for work
+          </h2>
         </div>
       </div>
     </div>
@@ -60,16 +65,35 @@ import Popover from "../components/popover.astro";
     <div class="border border-[#393939] w-[80%] max-[930px]:hidden"></div>
 
     <div
-      class="bg-[#1E1E1F] p-4 rounded-xl flex items-center max-[930px]:justify-center w-fit ">
-      <img src="../../public/svg/cv.svg" alt="cv" class="mx-2"/>
+      class="bg-[#1E1E1F] p-4 rounded-xl flex items-center max-[930px]:justify-center w-fit">
+      <img src="../../public/svg/cv.svg" alt="cv" class="mx-2" />
       <!-- <a
         href="../../public/CV-Elian-Rehbani.pdf"
         target="_blank"
         class="max-sm:text-sm text-center w-full hover:font-semibold transition-all hover:cursor-pointer"
         >View CV</a
       > -->
-      
-      <Popover triggerText="View CV"  /> 
+      <details class="dropdown">
+        <summary class="btn bg-[#1e1e1e] text-white rounded-md transition-colors duration-200 hover:bg-[#2e2e2e] border-none">View CV</summary>
+        <ul
+          class="menu dropdown-content z-10 invisible opacity-0 transition-all duration-300 ease-in-out transform
+          md:left-full md:ml-2 md:top-0
+          left-0 top-full mt-2 w-48 rounded-md shadow-lg bg-[#1e1e1e] ring-1 ring-black ring-opacity-5 space-y-2">
+          <a
+            href="../../public/CV-Elián-Rehbani-2024.pdf"
+            target="_blank"
+            class="max-sm:text-sm text-center w-full hover:font-semibold transition-all hover:cursor-pointer hover:bg-[#393939] h-10 my-auto flex flex-col justify-center rounded-md"
+            >🇪🇸 Spanish</a
+          >
+          <div class="h-[1px] w-full bg-[#393939]"></div>
+          <a
+            href="../../public/CV-Elian-Rehbani-English-2024.pdf"
+            target="_blank"
+            class="max-sm:text-sm text-center w-full hover:font-semibold transition-all hover:cursor-pointer hover:bg-[#393939] h-10 my-auto flex flex-col justify-center rounded-md"
+            >🇺🇸 English</a
+          >
+        </ul>
+      </details>
     </div>
 
     <div class="border border-[#393939] w-[80%]"></div>
